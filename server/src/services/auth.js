@@ -1,6 +1,5 @@
-var bcrypt = require("bcryptjs");
+import {bcryptjs as bcrypt} from "bcryptjs";
 
 export const createPasswordHash = async (password) => {
     bcrypt.hash(password, 8)
 }
-
