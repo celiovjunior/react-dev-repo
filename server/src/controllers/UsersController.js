@@ -48,11 +48,40 @@ class UsersController {
     }
 
     async update(req, res) {
-        
+        try {
+            const { id } = req.params;
+            const { email, password } = req.body;
+
+            const user = await User.findById(id);
+
+            if(!user) {
+                return res.status(404).json();
+            }
+
+            await user.updateOne({ email, password });
+            
+            return res.status(200).json();
+
+        } catch(err) {
+            console.error(err);
+            return res.status(500).json({ error: "Internal server error."});
+        }
     }
 
     async destroy(req, res) {
-        
+        try {
+            const { id } = req.params;
+            const user = await User.findById(id);
+
+            if(!user) {
+                return res.status(404).json();
+            }
+
+            await user.deleteOne();
+        } catch(err) {
+            console.error(err);
+            return res.status(500).json({ error: "Internal server error."});
+        }
     }
 }
 
