@@ -15,7 +15,7 @@ class UsersController {
     async show(req, res) {
         try {
             const { id } = req.params;
-            const user = await User.findBtyId(id);
+            const user = await User.findById(id);
 
             if(!user) {
                 return res.status(404).json();
