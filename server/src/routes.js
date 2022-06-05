@@ -1,5 +1,7 @@
 import { Router } from 'express'
+import RepositoriesController from './controllers/RepositoriesController'
 import UsersController from './controllers/UsersController'
+
 
 const routes = new Router()
 routes.get('/users', UsersController.index)
@@ -8,4 +10,8 @@ routes.post('/users', UsersController.create)
 routes.put('/users/:id', UsersController.update)
 routes.delete('/users/:id', UsersController.destroy)
 
-export default routes
+routes.get('/users/:user_id/repositories', RepositoriesController.index)
+routes.post('/users/:user_id/repositories', RepositoriesController.create)
+routes.delete('/users/:user_id/repositories', RepositoriesController.destroy)
+
+export default routes;
