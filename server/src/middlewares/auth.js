@@ -1,5 +1,5 @@
 /**
- * Fluxo do middleware de autenticação:
+ * Middleware's path to authenticate
  * Client <--> Node.js -> Express -> Middlewares -> Controller
  */
 import jwt from 'jsonwebtoken';
@@ -20,21 +20,12 @@ export default async (req, res, next) => {
 
     req.userId = decoded.id;
 
-    return next();
-    
+    return next(); // avaiable to continue the middleware path
+
   } catch(err) {
 
     return res.status(401).json({ error: 'Invalid token.' })
   
-  }
-
-  const authenticated = true;
-
-  if(authenticated) {
-    return next();
-    // 'next' é a função que vai liberar o fluxo, caso a condição seja 'true'
-  } else {
-    return res.status(401).json();
   }
 
 }

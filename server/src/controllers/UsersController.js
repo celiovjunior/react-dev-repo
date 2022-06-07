@@ -1,5 +1,5 @@
 import User from "../models/User";
-// import { createPasswordHash } from "../services/auth";
+import { createPasswordHash } from "../services/auth";
 
 class UsersController {
     async index(req, res) {
@@ -39,8 +39,8 @@ class UsersController {
             }
 
             // usando bcryptjs para o password
-            // const passwordHash = await createPasswordHash(password)
-            const newUser =  await User.create({ email, password })
+            const passwordHash = await createPasswordHash(password)
+            const newUser =  await User.create({ email, password: passwordHash })
             return res.status(201).json(newUser);
         } catch(err) {
 
