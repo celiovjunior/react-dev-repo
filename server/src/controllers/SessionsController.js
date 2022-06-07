@@ -4,7 +4,7 @@ import { checkPassword } from '../services/auth';
 
 import authConfig from '../config/auth';
 
-class SessionController {
+class SessionsController {
   async create(req, res) {
     const { email, password } = req.body;
 
@@ -32,4 +32,4 @@ class SessionController {
   }
 }
 
-export default SessionController();
+export default new SessionsController();
