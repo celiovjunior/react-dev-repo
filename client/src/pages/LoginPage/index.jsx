@@ -16,7 +16,7 @@ function LoginPage() {
     <div id="login">
       <h1 className="title">Login</h1>
       <form action="" className="form">
-        <div className="field">
+        <fieldset className="field">
           <label htmlFor="email">E-mail:</label>
           <input
            type="email" 
@@ -25,8 +25,8 @@ function LoginPage() {
            value={email}
            onChange={(e) => setEmail(e.target.value)}
            />
-        </div>
-        <div className="field">
+        </fieldset>
+        <fieldset className="field">
           <label htmlFor="password">Senha:</label>
           <input
            type="password" 
@@ -35,7 +35,7 @@ function LoginPage() {
            value={password} 
            onChange={(e) => setPassword(e.target.value)} 
           />
-        </div>
+        </fieldset>
         <div className="actions">
           <button onClick={handleLogin}>Entrar</button>
         </div>
