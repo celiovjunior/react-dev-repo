@@ -2,6 +2,11 @@ import React from "react";
 import './styles.css';
 
 function LoginPage() {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('evento disparado')
+  }
+
   return(
     <div id="login">
       <h1 className="title">Login</h1>
@@ -15,7 +20,7 @@ function LoginPage() {
           <input type="password" name="password" id="password" />
         </fieldset>
         <div className="actions">
-          <button>Entrar</button>
+          <button onClick={handleLogin}>Entrar</button>
         </div>
       </form>
     </div>
