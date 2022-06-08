@@ -2,6 +2,20 @@ html {
   box-sizing: border-box;
 }
 
+.btn {
+  color: white;
+  background-color: #3f3f3f;
+  border: 1px solid black;
+  width: 80px;
+  padding: .25rem;
+  transition: .2s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  filter:contrast(.5)
+}
+
 *, *:before, *:after {
   padding: 0;
   margin: 0;

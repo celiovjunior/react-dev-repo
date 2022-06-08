@@ -13,7 +13,12 @@
   margin: 0;
 }
 
-.btn-logout {
-  width: 80px;
-  padding: .25rem;
+#main .search {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background-color: #f1f1f1;
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 0.5rem;
 }

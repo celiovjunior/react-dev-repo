@@ -37,7 +37,7 @@ function LoginPage() {
           />
         </fieldset>
         <div className="actions">
-          <button onClick={handleLogin}>Entrar</button>
+          <button className="btn" onClick={handleLogin}>Entrar</button>
         </div>
       </form>
     </div>
