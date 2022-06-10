@@ -7,13 +7,19 @@ function Repositories({ repositories, onDeleteRepo, onNewRepo }) {
     <div className="repositories">
     <h2 className="title">Repositórios</h2>
     <ul className="list">
-      <li className="item">
-        <div className="info">
-          <div className="owner">Nome do dono</div>
-          <div className="name">Nome do repo</div>
-        </div>
-        <button onClick={() => onDeleteRepo(null)} className="btn">Deletar</button>
-      </li>
+
+      {
+        repositories.map((repository) => (
+          <li className="item" key={repository._id}>
+            <div className="info">
+              <div className="owner">{repository.name}</div>
+              <div className="name">{repository.name}</div>
+            </div>
+            <button onClick={() => onDeleteRepo(null)} className="btn">Deletar</button>
+          </li>
+        ))
+      }
+
     </ul>
 
     <div className="new">

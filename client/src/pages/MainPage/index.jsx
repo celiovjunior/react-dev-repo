@@ -5,13 +5,15 @@ import Search from "../../components/Search";
 import { getRepositories } from "../../services/api";
 import './styles.css';
 
-const userId = '628d32f560b0c4462b9749e6'
+const userId = '628d331b60b0c4462b9749ec'
 
 function MainPage() {
   const [repositories, setRepositories] = useState([]);
 
   const loadData = async (query = '') => {
     const response = await getRepositories(userId);
+    
+    console.log(response.data);
 
     setRepositories(response.data);
   }
@@ -44,7 +46,7 @@ function MainPage() {
       <Search onSearch={handleSearch} />
 
       <Repositories 
-        repositories={[]}
+        repositories={repositories}
         onDeleteRepo={handleDelete}
         onNewRepo={handleNewRepo}
       />
