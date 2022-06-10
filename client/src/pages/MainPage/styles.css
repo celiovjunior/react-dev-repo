@@ -13,7 +13,8 @@
   margin: 0;
 }
 
-#main .search {
+#main .search,
+#main .new {
   display: flex;
   gap: 5px;
   align-items: center;
@@ -56,6 +57,10 @@
   padding: .5rem;
 }
 
+#main .repositories .item:last-child {
+  border-bottom: none;
+}
+
 .info {
   flex: 1;
 }
@@ -64,3 +69,6 @@
   font-size: 1.5rem;
 }
 
+.owner {
+  color: #949494;
+}

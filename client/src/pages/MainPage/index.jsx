@@ -14,6 +14,10 @@ function MainPage() {
     console.log('limpou')
   }
 
+  const handleDelete = () => {
+    console.log('deletou')
+  }
+
   return(
     <div id="main">
       <nav className="nav">
@@ -36,30 +40,36 @@ function MainPage() {
               <div className="owner">Nome do dono</div>
               <div className="name">Nome do repo</div>
             </div>
-            <button className="btn">Deletar</button>
+            <button onClick={handleDelete} className="btn">Deletar</button>
           </li>
           <li className="item">
             <div className="info">
               <div className="owner">Nome do dono</div>
               <div className="name">Nome do repo</div>
             </div>
-            <button className="btn">Deletar</button>
+            <button onClick={handleDelete} className="btn">Deletar</button>
           </li>
           <li className="item">
             <div className="info">
               <div className="owner">Nome do dono</div>
               <div className="name">Nome do repo</div>
             </div>
-            <button className="btn">Deletar</button>
+            <button onClick={handleDelete} className="btn">Deletar</button>
           </li>
           <li className="item">
             <div className="info">
               <div className="owner">Nome do dono</div>
               <div className="name">Nome do repo</div>
             </div>
-            <button className="btn">Deletar</button>
+            <button onClick={handleDelete} className="btn">Deletar</button>
           </li>
         </ul>
+
+        <div className="new">
+          <label htmlFor="new-repo">Novo repositório:</label>
+          <input type="url" name="new-repo" id="new-repo" />
+          <button className="btn">Adicionar</button>
+        </div>
       </div>
     </div>
   )
