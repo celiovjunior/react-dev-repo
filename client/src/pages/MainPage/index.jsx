@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../../components/Nav";
+import Repositories from "../../components/Repositories";
 import Search from "../../components/Search";
 import './styles.css';
 
@@ -12,8 +13,12 @@ function MainPage() {
     console.log('query: ', query)
   }
 
-  const handleDelete = () => {
-    console.log('deletou')
+  const handleDelete = (repository) => {
+    console.log('deletou: ', repository)
+  }
+
+  const handleNewRepo = (url) => {
+    console.log('adicionou novo repo')
   }
 
   return(
@@ -22,45 +27,11 @@ function MainPage() {
 
       <Search onSearch={handleSearch} />
 
-      <div className="repositories">
-        <h2 className="title">Repositórios</h2>
-        <ul className="list">
-          <li className="item">
-            <div className="info">
-              <div className="owner">Nome do dono</div>
-              <div className="name">Nome do repo</div>
-            </div>
-            <button onClick={handleDelete} className="btn">Deletar</button>
-          </li>
-          <li className="item">
-            <div className="info">
-              <div className="owner">Nome do dono</div>
-              <div className="name">Nome do repo</div>
-            </div>
-            <button onClick={handleDelete} className="btn">Deletar</button>
-          </li>
-          <li className="item">
-            <div className="info">
-              <div className="owner">Nome do dono</div>
-              <div className="name">Nome do repo</div>
-            </div>
-            <button onClick={handleDelete} className="btn">Deletar</button>
-          </li>
-          <li className="item">
-            <div className="info">
-              <div className="owner">Nome do dono</div>
-              <div className="name">Nome do repo</div>
-            </div>
-            <button onClick={handleDelete} className="btn">Deletar</button>
-          </li>
-        </ul>
-
-        <div className="new">
-          <label htmlFor="new-repo">Novo repositório:</label>
-          <input type="url" name="new-repo" id="new-repo" />
-          <button className="btn">Adicionar</button>
-        </div>
-      </div>
+      <Repositories 
+        repositories={[]}
+        onDeleteRepo={handleDelete}
+        onNewRepo={handleNewRepo}
+      />
     </div>
   )
 }

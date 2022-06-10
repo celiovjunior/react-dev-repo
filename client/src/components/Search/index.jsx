@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './style.css';
 
 function Search({ onSearch, onClear }) {
   const [query, setQuery] = useState('');
@@ -13,7 +12,7 @@ function Search({ onSearch, onClear }) {
     <div className="search">
       <label htmlFor="query">Procurar:</label>
       <input
-       type="search" 
+       type="text" 
        name="query" 
        id="query" 
        value={query} 
