@@ -12,10 +12,6 @@ function MainPage() {
     console.log('query: ', query)
   }
 
-  const handleClear = () => {
-    console.log('limpou')
-  }
-
   const handleDelete = () => {
     console.log('deletou')
   }
@@ -24,7 +20,7 @@ function MainPage() {
     <div id="main">
       <Nav onLogout={handleLogout} />
 
-      <Search onSearch={handleSearch} onClear={handleClear} />
+      <Search onSearch={handleSearch} />
 
       <div className="repositories">
         <h2 className="title">Repositórios</h2>

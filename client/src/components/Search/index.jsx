@@ -4,6 +4,10 @@ import './style.css';
 function Search({ onSearch, onClear }) {
   const [query, setQuery] = useState('');
 
+  const handleClear = () => {
+    setQuery('');
+    onSearch('');
+  }
 
   return(
     <div className="search">
@@ -16,7 +20,7 @@ function Search({ onSearch, onClear }) {
        onChange={(e) => setQuery(e.target.value)} 
       />
       <button className="btn" onClick={() => onSearch(query)}>Procurar</button>
-      <button className="btn" onClick={onClear}>Limpar</button>
+      <button className="btn" onClick={handleClear}>Limpar</button>
     </div>
 
   )
