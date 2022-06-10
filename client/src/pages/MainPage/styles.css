@@ -1,17 +1,4 @@
-#main .nav {
-  display: flex;
-  align-items: center;
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #d5d5d5;
-  padding: .5rem;
-}
 
-#main .nav .logo {
-  color: grey;
-  flex: 1;
-  font-size: 1rem;
-  margin: 0;
-}
 
 #main .search,
 #main .new {

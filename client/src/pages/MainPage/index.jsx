@@ -1,4 +1,6 @@
 import React from "react";
+import Nav from "../../components/Nav";
+import Search from "../../components/Search";
 import './styles.css';
 
 function MainPage() {
@@ -20,17 +22,9 @@ function MainPage() {
 
   return(
     <div id="main">
-      <nav className="nav">
-        <h1 className="logo">SisRepo</h1>
-        <button className="btn" onClick={handleLogout}>Sair</button>
-      </nav>
+      <Nav onLogout={handleLogout} />
 
-      <div className="search">
-        <label htmlFor="query">Procurar:</label>
-        <input type="search" name="query" id="query" />
-        <button className="btn" onClick={handleSearch}>Procurar</button>
-        <button className="btn" onClick={handleClear}>Limpar</button>
-      </div>
+      <Search onSearch={handleSearch} onClear={handleClear} />
 
       <div className="repositories">
         <h2 className="title">Repositórios</h2>
