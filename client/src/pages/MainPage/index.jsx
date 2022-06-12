@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Repositories from "../../components/Repositories";
 import Search from "../../components/Search";
@@ -9,12 +10,19 @@ const userId = '629eae5b5032a43d07bdadba'
 
 function MainPage() {
   const [repositories, setRepositories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [loadingError, setLoadingError] = useState(false);
 
   const loadData = async (query = '') => {
-    const response = await getRepositories(userId);
+    try {
+      const response = await getRepositories(userId);
+      setRepositories(response.data);
+      setLoading(false);
+    } catch(err) {
+      console.error(err);
+      setLoadingError(true);
+    }
     
-    console.log(response.data)
-    setRepositories(response.data);
   }
 
   useEffect(() => {
@@ -36,6 +44,22 @@ function MainPage() {
 
   const handleNewRepo = (url) => {
     console.log('adicionou novo repo')
+  }
+
+  if(loading) {
+    return(
+      <div className="loading">
+        Carregando...
+      </div>
+    )
+  }
+
+  if(loadingError) {
+    return(
+      <div className="loading">
+        Erro ao carregar os dados de repositório. <Link to="/login">Voltar</Link>
+      </div>
+    )
   }
 
   return(
