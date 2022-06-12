@@ -5,7 +5,7 @@ import Search from "../../components/Search";
 import { getRepositories } from "../../services/api";
 import './styles.css';
 
-const userId = '628d331b60b0c4462b9749ec'
+const userId = '629eae5b5032a43d07bdadba'
 
 function MainPage() {
   const [repositories, setRepositories] = useState([]);
@@ -13,8 +13,7 @@ function MainPage() {
   const loadData = async (query = '') => {
     const response = await getRepositories(userId);
     
-    console.log(response.data);
-
+    console.log(response.data)
     setRepositories(response.data);
   }
 
