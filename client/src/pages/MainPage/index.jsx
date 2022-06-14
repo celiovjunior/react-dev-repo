@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "../../components/Nav";
 import Repositories from "../../components/Repositories";
 import Search from "../../components/Search";
-import { getRepositories } from "../../services/api";
+import { getRepositories, createRepository } from "../../services/api";
 import './styles.css';
 
 const userId = '629eae5b5032a43d07bdadba'
@@ -42,8 +42,15 @@ function MainPage() {
     console.log('deletou: ', repository)
   }
 
-  const handleNewRepo = (url) => {
-    console.log('adicionou novo repo')
+  const handleNewRepo = async (url) => {
+    console.log('new repo: ', url)
+    try {
+      await createRepository(userId, url);
+      await loadData();
+    } catch (err) {
+      console.error(err);
+      setLoadingError(true)
+    }
   }
 
   if(loading) {
@@ -57,7 +64,7 @@ function MainPage() {
   if(loadingError) {
     return(
       <div className="loading">
-        Erro ao carregar os dados de repositório. <Link to="/login">Voltar</Link>
+        Erro ao carregar os dados do repositório. <Link to="/login">Voltar</Link>
       </div>
     )
   }
@@ -67,7 +74,7 @@ function MainPage() {
       <Nav onLogout={handleLogout} />
 
       <Search onSearch={handleSearch} />
-
+      
       <Repositories 
         repositories={repositories}
         onDeleteRepo={handleDelete}

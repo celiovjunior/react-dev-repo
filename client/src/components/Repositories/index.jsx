@@ -15,7 +15,7 @@ function Repositories({ repositories, onDeleteRepo, onNewRepo }) {
               <div className="owner">{repository.name.substring(0, repository.name.indexOf('/'))}</div>
               <div className="name">{repository.name.substring(repository.name.indexOf('/') + 1)}</div>
             </div>
-            <button onClick={() => onDeleteRepo(null)} className="btn">Deletar</button>
+            <button onClick={() => onDeleteRepo(repository)} className="btn">Deletar</button>
           </li>
         ))
       }
